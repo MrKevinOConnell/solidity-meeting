@@ -146,7 +146,7 @@ function VlogVideo({ isRecording, config }, ref) {
   }, []);
   useEffect(() => {
     if (isRecording && !isWithoutVideo) {
-      displayVideoElement.current.src = canvasRef.current.captureStream(60);
+      displayVideoElement.current.srcObject = canvasRef.current.captureStream(60);
       displayVideoElement.current.play();
       if (document.pictureInPictureEnabled) {
         displayVideoElement.current.addEventListener("loadedmetadata", () => {

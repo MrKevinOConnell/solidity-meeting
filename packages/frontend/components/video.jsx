@@ -4,7 +4,7 @@ export default function Video({ peer, userName }) {
   const vRef = useRef();
   useEffect(async () => {
     if (vRef.current) {
-     vRef.current.src = URL.createObjectURL(peer.stream)
+     vRef.current.src = peer.stream;
      await vRef.current.play();
     }
   }, [peer]);
