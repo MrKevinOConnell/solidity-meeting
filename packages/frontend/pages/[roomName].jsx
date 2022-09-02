@@ -21,7 +21,6 @@ export default function Main() {
     router.push("/");
     setIsStarted(false);
   };
-  
   const copyToClipboard = () => {
     const el = document.createElement("textarea");
     el.value = `${process.env.NEXT_PUBLIC_URL}/${roomName}`;
