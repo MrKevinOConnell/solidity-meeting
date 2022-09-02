@@ -2,10 +2,10 @@ import { useEffect, useRef } from "react";
 
 export default function Video({ peer, userName }) {
   const vRef = useRef();
-  useEffect(() => {
+  useEffect(async () => {
     if (vRef.current) {
-      vRef.current.srcObject = peer.stream;
-      vRef.current.play();
+     vRef.current.srcObject = peer.stream;
+     await vRef.current.play();
     }
   }, [peer]);
   return peer && peer.stream ? (
