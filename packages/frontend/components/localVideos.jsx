@@ -33,7 +33,7 @@ export const LocalVideo = ({ isVlog }) => {
   }, [shareScreen, isStarted, isVlog]);
   useEffect(() => {
     if (isStarted) {
-      localVideoElement.current.src = URL.createObjectURL(localStream)
+      localVideoElement.current.src = localStream;
       localVideoElement.current.play();
     }
     return async () => {
