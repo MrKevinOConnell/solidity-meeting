@@ -12,7 +12,7 @@ export const LocalVideo = ({ isVlog }) => {
       normalLocalStream;
     (async () => {
       let videoTrack, audioTrack;
-      let normalLocalStream = await navigator.mediaDevices.getUserMedia({video: true, audio: true});
+      let normalLocalStream = await navigator.mediaDevices.getUserMedia(userMediaConstraints);
       if (shareScreen) {
         stream = await navigator.mediaDevices.getDisplayMedia({
           video: true,
@@ -33,7 +33,7 @@ export const LocalVideo = ({ isVlog }) => {
   }, [shareScreen, isStarted, isVlog]);
   useEffect(() => {
     if (isStarted) {
-      localVideoElement.current.srcObject = localStream;
+      localVideoElement.current.src = URL.createObjectURL(localStream)
       localVideoElement.current.play();
     }
     return async () => {
