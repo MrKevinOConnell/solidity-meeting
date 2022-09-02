@@ -92,7 +92,6 @@ export const RemoteStreams = ({ myUserId, socket }) => {
     if (by === myUserId) {
       return;
     }
-    console.log("BY",by)
     let currentPeerConnection = getPeerConnection(by).connection;
     currentPeerConnection.createOffer(
       (sdp) => {
