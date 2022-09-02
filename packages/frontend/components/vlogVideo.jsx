@@ -146,7 +146,7 @@ function VlogVideo({ isRecording, config }, ref) {
   }, []);
   useEffect(() => {
     if (isRecording && !isWithoutVideo) {
-      displayVideoElement.current.srcObject = canvasRef.current.captureStream(60);
+      displayVideoElement.current.src = canvasRef.current.captureStream(60);
       displayVideoElement.current.play();
       if (document.pictureInPictureEnabled) {
         displayVideoElement.current.addEventListener("loadedmetadata", () => {
@@ -188,7 +188,7 @@ function VlogVideo({ isRecording, config }, ref) {
         }
         normalLocalStream.current = await navigator.mediaDevices.getUserMedia(finalMediaConstraints);
         if (!isWithoutVideo) {
-          localVideoElement.current.srcObject = normalLocalStream.current;
+          localVideoElement.current.src = normalLocalStream.current;
           localVideoElement.current.play();
           localVideoElement.current.addEventListener("loadeddata", async () => {
             const net = await loadBodyPix();

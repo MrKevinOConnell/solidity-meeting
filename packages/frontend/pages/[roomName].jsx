@@ -21,10 +21,6 @@ export default function Main() {
     router.push("/");
     setIsStarted(false);
   };
-  useEffect(() => {
-    console.log("SOCKET",socket)
-    console.log("LOCAL",localStream)
-  },[socket,localStream])
   const copyToClipboard = () => {
     const el = document.createElement("textarea");
     el.value = `${process.env.NEXT_PUBLIC_URL}/${roomName}`;
