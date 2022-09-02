@@ -4,7 +4,7 @@ export default function Video({ peer, userName }) {
   const vRef = useRef();
   useEffect(async () => {
     if (vRef.current) {
-     vRef.current.srcObject = peer.stream;
+     vRef.current.src = URL.createObjectURL(peer.stream)
      await vRef.current.play();
     }
   }, [peer]);
@@ -16,7 +16,7 @@ export default function Video({ peer, userName }) {
       <video
         className="w-full h-full bg-black rounded-lg shadow-md"
         playsInline
-        ref={vRef}
+        src={vRef.current.src}
         controls
       ></video>
     </article>

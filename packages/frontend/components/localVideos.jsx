@@ -63,7 +63,7 @@ export const LocalVideo = ({ isVlog }) => {
         muted
         controls
         playsInline
-        ref={localVideoElement}
+        ref={URL.createObjectURL(localVideoElement.current.src)}
       ></video>
     </article>
   ) : null;
