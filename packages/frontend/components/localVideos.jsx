@@ -12,7 +12,7 @@ export const LocalVideo = ({ isVlog }) => {
       normalLocalStream;
     (async () => {
       let videoTrack, audioTrack;
-      let normalLocalStream = await navigator.mediaDevices.getUserMedia(userMediaConstraints);
+      let normalLocalStream = await navigator.mediaDevices.getUserMedia({video: true, audio: true});
       if (shareScreen) {
         stream = await navigator.mediaDevices.getDisplayMedia({
           video: true,
