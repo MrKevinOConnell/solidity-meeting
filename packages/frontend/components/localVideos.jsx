@@ -33,7 +33,7 @@ export const LocalVideo = ({ isVlog }) => {
   }, [shareScreen, isStarted, isVlog]);
   useEffect(() => {
     if (isStarted) {
-      localVideoElement.current.src = localStream;
+      localVideoElement.current.srcObject = localStream;
       localVideoElement.current.play();
     }
     return async () => {
@@ -63,7 +63,7 @@ export const LocalVideo = ({ isVlog }) => {
         muted
         controls
         playsInline
-        ref={URL.createObjectURL(localVideoElement.current.src)}
+        ref={localVideoElement}
       ></video>
     </article>
   ) : null;
