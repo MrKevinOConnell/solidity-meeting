@@ -4,6 +4,12 @@ import { iceConfig } from "../utils/constants";
 import RemoteVideos from "./remoteVideos";
 export const RemoteStreams = ({ myUserId, socket }) => {
   const [peers, setPeers] = useState({});
+
+  useEffect(() => {
+    console.log("PEERS",peers)
+  },[peers])
+
+
   const [userNames, setUserNames] = useState([]);
   const [localStream] = useRhinoState("localStream");
   const [userName] = useRhinoState("userName");
@@ -86,6 +92,7 @@ export const RemoteStreams = ({ myUserId, socket }) => {
     if (by === myUserId) {
       return;
     }
+    console.log("BY",by)
     let currentPeerConnection = getPeerConnection(by).connection;
     currentPeerConnection.createOffer(
       (sdp) => {
